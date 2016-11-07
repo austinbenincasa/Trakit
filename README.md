@@ -8,7 +8,6 @@ on multiple contracts can be very combersome so Trakit was developed to make tha
 
  * npm
  * Node.js
- * Jquery
  * Electron
  * MongoDB
  
@@ -18,7 +17,7 @@ on multiple contracts can be very combersome so Trakit was developed to make tha
 ## Getting Started
 To get Trakit up and running, install the latest version of node.js and npm. After Node.js and npm have been 
 installed, you will need to install the lastest version of MongoDB. Next you will need to clone the Trakit 
-repository and run the following commands..
+repository and run the following commands in the folder you cloned the repository..
 
 ```
  # Installs Trakit Dependencies
