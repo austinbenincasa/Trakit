@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="app/css/style.css">
+    <script type="text/javascript" src="app/js/database_connect.js"></script>
+    <script type="text/javascript" src="app/js/calender.js"></script>
+    <script type="text/javascript" src="app/js/event_handlers.js"></script>
+    <script type="text/javascript" src="app/js/clock.js"></script>
+    <script type="text/javascript" src="app/js/timesheet.js"></script>
+    <script type="text/javascript" src="app/js/hours_summary.js"></script>
+  </head>
+  <body>
+  <header>
+        <div class="nav-bar">
+          <div class="logo-text">Trakit</div><div class="add-time">+</div>
+        </div>
+  </header>
+  <div class="main-container">
+    <div class="modual-overlay">
+      <div class="add-window">
+        <div class="modual-exit"><div class="exit-button">+</div></div>
+        <div class="modual-title">Add Contract</div>
+            <input class="contract-input" type="text" id="add-con-name" placeholder="Contract Name"><br>
+            <input class="contract-input"type="text" id="add-con-hours" placeholder="Hours"><br><br>
+            <button class="add-button">Add</button>
+      </div>
+      <div class="setup">
+      </div>
+    </div>
+    <div class="right-container">
+      <div class="right-main">
+        <div id="title">Datetime</div>
+        <div class="current-date"></div>
+        <div class="clock">
+        </div>
+      </div>
+    </div>
+    <div class="left-container">
+      <div class="calander">
+        <table class="calen-table"style="width:100%">
+          <div class="month-title" id="title"></div>
+          <tr id="weeks">
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thr</th>
+            <th>Fri</th>
+            <th>Sat</th>
+         </tr>
+         <tr class="week" id="week_0">
+            <td class="day" id="00"></td>
+            <td class="day" id="01"></td>
+            <td class="day" id="02"></td>
+            <td class="day" id="03"></td>
+            <td class="day" id="04"></td>
+            <td class="day" id="05"></td>
+            <td class="day" id="06"></td>
+         </tr>
+         <tr class="week" id="week_1">
+            <td class="day" id="10"></td>
+            <td class="day" id="11"></td>
+            <td class="day" id="12"></td>
+            <td class="day" id="13"></td>
+            <td class="day" id="14"></td>
+            <td class="day" id="15"></td>
+            <td class="day" id="16"></td>
+         </tr>
+         <tr class="week" id="week_2">
+            <td class="day" id="20"></td>
+            <td class="day" id="21"></td>
+            <td class="day" id="22"></td>
+            <td class="day" id="23"></td>
+            <td class="day" id="24"></td>
+            <td class="day" id="25"></td>
+            <td class="day" id="26"></td>
+         </tr>
+         <tr class="week" id="week_3">
+            <td class="day" id="30"></td>
+            <td class="day" id="31"></td>
+            <td class="day" id="32"></td>
+            <td class="day" id="33"></td>
+            <td class="day" id="34"></td>
+            <td class="day"id="35"></td>
+            <td class="day" id="36"></td>
+         </tr>
+         <tr class="week" id="week_4">
+            <td class="day" id="40"></td>
+            <td class="day" id="41"></td>
+            <td class="day" id="42"></td>
+            <td class="day" id="43"></td>
+            <td class="day" id="44"></td>
+            <td class="day" id="45"></td>
+            <td class="day" id="46"></td>
+         </tr>
+         <tr class="week" id="week_5">
+            <td class="day" id="50"></td>
+            <td class="day" id="51"></td>
+            <td class="day" id="52"></td>
+            <td class="day" id="53"></td>
+            <td class="day" id="54"></td>
+            <td class="day" id="55"></td>
+            <td class="day" id="56"></td>
+         </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-container">
+    <div class="timesheet">
+      <div class="time-enter" id="title"></div>
+      <table class="addtime-table"style="width:100%">
+          <tr class="time-input">
+            <td class="contract-select">
+              <select class="contract-selector">
+              </select>
+            </td>
+            <td class="contract-hours">
+              <input class="contract-hours-input" type="text" placeholder="0.0">
+            </td>
+            <td>
+              <button class="submit-time" name="submit-time">Add Time</button>
+            </td>
+          </tr>
+      </table>
+      <table class="timesheet-table">
+          <tr class="overview-head">
+            <th>Contract</th>
+            <th>Hours</th>
+          </tr>
+      </table>
+    </div>
+    <div class="notes">
+      <div id="title">Notes</div>
+      <textarea class="note_text"></textarea>
+      <button class="add-note">Save Note</button>
+    </div>
+    <div class="time-overview">
+      <table class="con-table"style="width:100%">
+        <div id="title">Week Summary</div>
+          <tr class="overview-head">
+            <th>Contract</th>
+            <th>Total Hours</th>
+            <th>Hours Remaining</th>
+          </tr>
+      </table>
+    </div>
+</div>
+</body>
+<script>
+    week_overview();
+    load_timesheet();
+    load_contracts();
+</script>
+</html>
