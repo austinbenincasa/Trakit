@@ -2,11 +2,15 @@ var electron = require('electron');
 var app = electron.app;
 var BrowserWindow = electron.BrowserWindow;
 
-global.sharedObj = {month: null, day: null,year:null,week:null,db:null};
+var d = new Date();
+var day = d.getDate();
+var wd = d.getDay();
+var year = d.getFullYear();
+var month = d.getMonth();
+
+global.sharedObj = {month: month, day: day, year:year, week:null, db:null};
 
 var mainWindow = null;
-app.getPath('userData');
-
 app.on('ready', function(){
   mainWindow = new BrowserWindow({
   width: 800,

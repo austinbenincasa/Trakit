@@ -70,7 +70,7 @@ var get_week_hours = function(month,year,week,callback)
           }
         }
       }
-      callback(null,null,null,week_hours);
+      callback(week_hours);
     }
   });
 };
@@ -94,7 +94,7 @@ var get_day_hours = function(month,year,day, callback)
           day_hours[name] = parseInt(hours);
         }
       }
-      callback(null,null,null,day_hours);
+      callback(day_hours);
     }
   });
 };
@@ -110,7 +110,7 @@ var get_contracts = function(month,year,callback)
       for (var i = 0; i < docs[0]["contracts"].length; i++) {
         contracts.push(docs[0]["contracts"][i].name);
       }
-      callback(null,null,contracts);
+      callback(contracts);
     }
   });
 };
@@ -127,7 +127,7 @@ var get_remaining_hours = function(month,year,callback) {
         var time = docs[0]["hours_remaining"][i].hours;
         totals[name] = parseInt(time);
       }
-      callback(null,null,totals);
+      callback(totals);
     }
   });
 }

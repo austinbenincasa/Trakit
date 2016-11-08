@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="app/css/style.css">
     <script type="text/javascript" src="app/js/database_connect.js"></script>
+    <script type="text/javascript" src="app/js/timesheet.js"></script>
+    <script type="text/javascript" src="app/js/hours_summary.js"></script>
     <script type="text/javascript" src="app/js/calender.js"></script>
     <script type="text/javascript" src="app/js/event_handlers.js"></script>
     <script type="text/javascript" src="app/js/clock.js"></script>
-    <script type="text/javascript" src="app/js/timesheet.js"></script>
-    <script type="text/javascript" src="app/js/hours_summary.js"></script>
   </head>
   <body>
   <header>
@@ -149,8 +149,11 @@
 </div>
 </body>
 <script>
+$(document).ready(function(){
+    loadcalender();
     week_overview();
-    load_timesheet();
+    reload_timesheet();
     load_contracts();
+});
 </script>
 </html>

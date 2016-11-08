@@ -65,7 +65,6 @@ $(document).ready(function(){
     var hours = $("<td>").html(hours);
     var row = $("<tr>").append(title,hours);
     $(".timesheet-table").append(row);
-    //this is slow and sucks
     $.getScript('app/js/hours_summary.js').done(function () {
         week_overview();
     });

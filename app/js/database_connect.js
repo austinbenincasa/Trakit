@@ -1,31 +1,9 @@
 var remote = require('electron').remote;
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/Trakit');
+mongoose.connect('mongodb://localhost:27017/Trakit?poolSize=10');
 mongoose.Promise = global.Promise;
 
-mongoose.connection.on('connected', function () {
-  console.log('Mongoose default connection open to ' +
-    'mongodb://127.0.0.1:27017/Trakit');
-});
-
-
-mongoose.connection.on('error',function (err) {
-  console.log('Mongoose default connection error: ' + err);
-});
-
-
-mongoose.connection.on('disconnected', function () {
-  console.log('Mongoose default connection disconnected');
-});
-
-
-process.on('SIGINT', function() {
-  mongoose.connection.close(function () {
-    console.log('Mongoose default connection disconnected through app termination');
-    process.exit(0);
-  });
-});
 
 var Contracts = new mongoose.Schema({
   id: String,
@@ -41,19 +19,9 @@ var HoursWorked = new mongoose.Schema({
   contracts_worked: Array
 });
 
-var con;
-try{
-  con = mongoose.model('Contracts');
-}
-catch (e) {
-  con = mongoose.model('Contracts', Contracts, 'Contracts');
-}
-var hws;
-try{
-  hws = mongoose.model('HoursWorked');
-}
-catch (e) {
-  hws = mongoose.model('HoursWorked', HoursWorked, 'HoursWorked');
-}
+var con = mongoose.model('Contracts', Contracts, 'Contracts');
+
+var hws = mongoose.model('HoursWorked', HoursWorked, 'HoursWorked');
+
 remote.getGlobal('sharedObj').con = con;
 remote.getGlobal('sharedObj').hws = hws;

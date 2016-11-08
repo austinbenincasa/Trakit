@@ -30,6 +30,19 @@ function load_timesheet(){
   });
 
 }
+function reload_timesheet(){
+  db.get_day_hours(month,year,day, function() {
+    for(var key in day_hours)
+    {
+      var name = key;
+      var hours = day_hours[key];
+      var title = $("<td>").html(name);
+      var hours = $("<td>").html(hours);
+      var row = $("<tr>").append(title,hours);
+      $(".timesheet-table").append(row);
+    }
+  });
+}
 function clear_timesheet()
 {
   $('.timesheet-table tr:not(:first)').remove();
