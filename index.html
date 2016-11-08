@@ -6,7 +6,7 @@
     <script type="text/javascript" src="app/js/database_connect.js"></script>
     <script type="text/javascript" src="app/js/timesheet.js"></script>
     <script type="text/javascript" src="app/js/hours_summary.js"></script>
-    <script type="text/javascript" src="app/js/calender.js"></script>
+    <script type="text/javascript" src="app/js/calendar.js"></script>
     <script type="text/javascript" src="app/js/event_handlers.js"></script>
     <script type="text/javascript" src="app/js/clock.js"></script>
   </head>
@@ -39,7 +39,11 @@
     <div class="left-container">
       <div class="calander">
         <table class="calen-table"style="width:100%">
-          <div class="month-title" id="title"></div>
+          <div id="title">
+            <div class="leftarrow">&#x21d0;&nbsp;</div>
+            <div class="rightarrow">&nbsp;&#x21d2;</div>
+            <div class="month-title"></div>
+          </div>
           <tr id="weeks">
             <th>Sun</th>
             <th>Mon</th>
@@ -150,7 +154,7 @@
 </body>
 <script>
 $(document).ready(function(){
-    loadcalender();
+    loadcalendar();
     week_overview();
     reload_timesheet();
     load_contracts();

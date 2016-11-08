@@ -160,6 +160,16 @@ body{
 .time-input{
   border: 1px solid black;
 }
+.leftarrow{
+  float: left;
+  top: 0;
+  bottom: 0;
+}
+.rightarrow{
+  float: right;
+  top: 0;
+  bottom: 0;
+}
 .calen-table{
   padding: 10px;
   overflow-x: scroll;

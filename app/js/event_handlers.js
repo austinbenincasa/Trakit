@@ -69,4 +69,41 @@ $(document).ready(function(){
         week_overview();
     });
   });
+  $('.leftarrow').click(function(){
+    var month = remote.getGlobal('sharedObj').month;
+    var year = remote.getGlobal('sharedObj').year;
+    if(month === 0)
+    {
+      remote.getGlobal('sharedObj').month = 11;
+      remote.getGlobal('sharedObj').year = year - 1;
+    }
+    else{
+      remote.getGlobal('sharedObj').month = month - 1;
+    }
+    $.getScript('app/js/calendar.js').done(function () {
+      change_calendar();
+    });
+    $.getScript('app/js/timesheet.js').done(function () {
+        load_contracts();
+    });
+
+  });
+  $('.rightarrow').click(function(){
+    var month = remote.getGlobal('sharedObj').month;
+    var year = remote.getGlobal('sharedObj').year;
+    if(month === 11)
+    {
+      remote.getGlobal('sharedObj').year = year + 1;
+      remote.getGlobal('sharedObj').month = 0;
+    }
+    else{
+      remote.getGlobal('sharedObj').month = month + 1;
+    }
+    $.getScript('app/js/calendar.js').done(function () {
+        change_calendar();
+    });
+    $.getScript('app/js/timesheet.js').done(function () {
+        load_contracts();
+    });
+  });
 });
