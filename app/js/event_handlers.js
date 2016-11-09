@@ -15,8 +15,7 @@ $(document).ready(function(){
       $(".today").removeClass("today");
       $(this).addClass("today");
       $(".time-enter").empty();
-      $(".time-enter").html(
-        "Timesheet: " + months[month] + " " + day + ", " + year);
+      $(".time-enter").html("Timesheet: " + months[month] + " " + day + ", " + year);
       $.getScript('app/js/hours_summary.js').done(function () {
           week_overview();
       });
@@ -86,7 +85,12 @@ $(document).ready(function(){
     $.getScript('app/js/timesheet.js').done(function () {
         load_contracts();
     });
-
+    $.getScript('app/js/hours_summary.js').done(function () {
+        week_overview();
+    });
+    $.getScript('app/js/timesheet.js').done(function () {
+        load_timesheet();
+    });
   });
   $('.rightarrow').click(function(){
     var month = remote.getGlobal('sharedObj').month;
@@ -104,6 +108,12 @@ $(document).ready(function(){
     });
     $.getScript('app/js/timesheet.js').done(function () {
         load_contracts();
+    });
+    $.getScript('app/js/hours_summary.js').done(function () {
+        week_overview();
+    });
+    $.getScript('app/js/timesheet.js').done(function () {
+        load_timesheet();
     });
   });
 });
