@@ -36,7 +36,7 @@ repository and run the following commands in the folder you cloned the repositor
 
 ## Contributing
 Use the issue page to report that you would like to fix a bug and or
-create a new feature for the project. From there fork the repository
+create a new feature for the project. From there fork the repository and
 make the changes specified in the issue. Please do not fix multiple
 issues in one PR. Sumbit a single PR for a single feature addition or
 bug fix.
